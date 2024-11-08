@@ -55,11 +55,29 @@ TAVUS_API_KEY=your_api_key_here
 
 You can obtain your API key from the [Tavus Developer Portal](https://docs.tavus.io/sections/introduction). For more information about API setup and usage, refer to the [Tavus Documentation](https://docs.tavus.io/sections/introduction).
 
-Alternatively, if deploying to Vercel or another hosting platform, add `TAVUS_API_KEY` as an environment variable in your deployment settings.
+3. Update Persona IDs:
 
-> ⚠️ **Important**: Never commit your `.env.local` file to version control. It's already included in `.gitignore` for your security.
+> ⚠️ **Important**: Before running the application, you need to replace the replica and persona IDs in `app/page.tsx` with your own IDs from the Tavus platform. The current IDs are placeholders and won't work:
 
-3. Start the development server:
+```typescript
+const REPLICA_IDS = {
+  Alice: 'your_replica_id_here',
+  Brian: 'your_replica_id_here',
+  Greg: 'your_replica_id_here'
+} as const;
+
+const PERSONA_IDS = {
+  Doctor: 'your_persona_id_here',
+  Therapist: 'your_persona_id_here',
+  Mechanic: 'your_persona_id_here',
+  PersonalTrainer: 'your_persona_id_here',
+  Tutor: 'your_persona_id_here'
+} as const;
+```
+
+You can find your replica and persona IDs in the [Tavus Developer Portal](https://docs.tavus.io/sections/introduction).
+
+4. Start the development server:
 ```bash
 npm run dev
 ```
